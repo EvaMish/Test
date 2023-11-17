@@ -24,6 +24,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.biatest.R
 import com.example.biatest.ui.theme.BIAtestTheme
 import com.example.biatest.ui.theme.MaskTransformation
@@ -31,7 +33,11 @@ import com.example.biatest.ui.theme.MaskTransformation
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreenPass(onClick: () -> Unit) {
+fun LoginScreenPass(
+    onClick: () -> Unit,
+    navController: NavHostController,
+    onIconButtonClick: () -> Unit,
+) {
 
     var isButtonEnabled by remember { mutableStateOf(false) }
     var password by remember { mutableStateOf("") }
@@ -64,17 +70,17 @@ fun LoginScreenPass(onClick: () -> Unit) {
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
+        horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.Center
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(0.dp),
-            horizontalArrangement = Arrangement.Start, // Align the content of the row to the start (left)
-            verticalAlignment = Alignment.CenterVertically // Align the content of the row to the top
+                .padding(30.dp),
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            IconButton(onClick = { navController.navigateUp() }) {
+            IconButton(onClick = { onIconButtonClick() }) {
                 Icon(Icons.Filled.ArrowBack, contentDescription = "Информация о приложении")
             }
             Text(
@@ -85,7 +91,6 @@ fun LoginScreenPass(onClick: () -> Unit) {
                 fontSize = 25.sp
             )
         }
-
         Spacer(modifier = Modifier.padding(7.dp))
         Text(
             text = stringResource(id = R.string.passWeb),
@@ -132,11 +137,11 @@ fun LoginScreenPass(onClick: () -> Unit) {
 
         Button(
             onClick = {
-               onClick()
+                onClick()
+                navController.navigate("your_destination")
             },
             enabled = password.length == 6,
-            modifier = Modifier
-                .fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(
                 containerColor = if (isButtonEnabled) Color.Black else Color.Gray,
                 contentColor = Color.White,
@@ -146,6 +151,7 @@ fun LoginScreenPass(onClick: () -> Unit) {
             Text("Продолжить")
         }
 
+
     }
 }
 
@@ -153,6 +159,10 @@ fun LoginScreenPass(onClick: () -> Unit) {
 @Composable
 fun PreviewLoginScreenPass() {
     BIAtestTheme() {
-        LoginScreenPass{}
+        LoginScreenPass(
+            navController = rememberNavController(),
+            onIconButtonClick = {},
+            onClick = {}
+        )
     }
 }

@@ -14,27 +14,26 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.biatest.ui.theme.BIAtestTheme
+import com.example.biatest.ui.theme.NavigationViewModel
 import com.example.biatest.ui.theme.screens.LoginScreen
 import com.example.biatest.ui.theme.screens.LoginScreenPass
 import com.example.biatest.ui.theme.screens.MainScreen
 import com.example.biatest.ui.theme.screens.SplashScreen
 
 class MainActivity : ComponentActivity() {
-    private val navController by lazy {
-        rememberNavController()
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
-           // val navController = rememberNavController()
-
+            val viewModel = ViewModelProvider(this).get(NavigationViewModel::class.java)
+            viewModel.navController = rememberNavController()
             NavHost(
-                navController = navController,
+                navController = viewModel.navController,
                 startDestination = "auth"
             ) {
 
@@ -45,7 +44,7 @@ class MainActivity : ComponentActivity() {
                         exit = fadeOut() + fadeOut()
                     ) {
                         LoginScreen {
-                            navController.navigate("screenAuthPass")
+                            viewModel.navController.navigate("screenAuthPass")
                         }
 
                     }
@@ -57,13 +56,17 @@ class MainActivity : ComponentActivity() {
                         enter = fadeIn() + fadeIn(),
                         exit = fadeOut() + fadeOut()
                     ) {
-                        LoginScreenPass {
-                            navController.navigate("screenMain") {
-//                                popUpTo("screenAuthPass") {////+++++++++
-//                                    inclusive = true
-//                                }
+                        LoginScreenPass(
+                            navController = viewModel.navController,
+                            onIconButtonClick = {
+                                // Handle IconButton click action
+                                // For example, navigate to a different destination
+                                viewModel.navController.navigate("auth")
+                            },
+                            onClick = {
+                                viewModel.navController.navigate("screenMain")
                             }
-                        }
+                        )
                     }
                 }
 
@@ -89,7 +92,4 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
-
-
 }
