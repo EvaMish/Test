@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BIAtest</string>
+    <string name="welcome">Добро пожаловать в БИА. Удобная Смена</string>
+    <string name="enterPass">Введите свой пароль</string>
+    <string name="next">Продолжить</string>
+    <string name="enterPhone">Введите свой номер телефона для авторизации</string>
+    <string name="comf">УдобнаяСмена</string>
+    <string name="passWeb">Пароль вы можете получить на веб-версии БИА. УдобнаяСмена в личном кабинете</string>
+
+
+</resources>
