@@ -6,6 +6,14 @@
     <string name="enterPhone">Введите свой номер телефона для авторизации</string>
     <string name="comf">УдобнаяСмена</string>
     <string name="passWeb">Пароль вы можете получить на веб-версии БИА. УдобнаяСмена в личном кабинете</string>
+    <string name="build">Сборка</string>
+    <string name="edit">Редактировать</string>
+    <string name="selection">Начать подбор</string>
+    <string name="warehouse">Склад</string>
+    <string name="info">Информация для подбора</string>
+    <string name="typeTask">Тип задания</string>
+    <string name="empl">Сотрудник найден</string>
+
 
 
 </resources>

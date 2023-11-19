@@ -59,7 +59,7 @@ fun LoginScreen(onClick: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -118,7 +118,8 @@ fun LoginScreen(onClick: () -> Unit) {
             onClick = {
                 // Действия при нажатии кнопки
             },
-            enabled = isButtonEnabled,
+
+            enabled = phoneNumber.length==8,
             modifier = Modifier
                 .fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(

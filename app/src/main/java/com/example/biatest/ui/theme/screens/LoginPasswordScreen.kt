@@ -76,7 +76,7 @@ fun LoginScreenPass(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(30.dp),
+                .padding(0.dp),
             horizontalArrangement = Arrangement.Start,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -148,7 +148,7 @@ fun LoginScreenPass(
                 disabledContentColor = Color.Gray
             )
         ) {
-            Text("Продолжить")
+            Text(stringResource(id = R.string.next))
         }
 
 
