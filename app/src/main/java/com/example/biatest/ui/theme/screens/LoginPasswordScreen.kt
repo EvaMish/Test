@@ -128,6 +128,7 @@ fun LoginScreenPass(
                 focusedBorderColor = Color.Gray,
                 unfocusedBorderColor = Color.Black,
                 focusedLabelColor = Color.Gray,
+                cursorColor = Color.Black
             ),
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Password

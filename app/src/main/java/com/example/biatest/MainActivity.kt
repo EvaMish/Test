@@ -14,8 +14,6 @@ import com.example.biatest.data.NavigationViewModel
 import com.example.biatest.ui.theme.screens.LoginScreen
 import com.example.biatest.ui.theme.screens.LoginScreenPass
 import com.example.biatest.ui.theme.screens.MainScreen
-import com.example.biatest.ui.theme.screens.NewTask
-import com.example.biatest.ui.theme.screens.SplashScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

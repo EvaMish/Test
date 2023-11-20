@@ -10,16 +10,23 @@ import androidx.navigation.compose.composable
 import com.example.biatest.ui.theme.elements.Charts
 import com.example.biatest.ui.theme.elements.Chat
 import com.example.biatest.ui.theme.elements.Profile
-import com.example.biatest.ui.theme.screens.NewTask
+import com.example.biatest.ui.theme.elements.NewTaskSelection
+import com.example.biatest.ui.theme.screens.NewTaskLazyColumn
 import com.example.biatest.ui.theme.screens.TaskList
 import com.example.biatest.ui.theme.screens.getTasksList
 
 @Composable
 fun NavGraph(navHostController: NavHostController) {
     val taskList = getTasksList()
-    NavHost(navController = navHostController, startDestination = "tasks"){
+    NavHost(navController = navHostController, startDestination = "tasks") {
         composable("tasks") {
-            TaskList(taskList)
+            AnimatedVisibility(
+                visible = true,
+                enter = fadeIn() + fadeIn(),
+                exit = fadeOut() + fadeOut()
+            ) {
+                TaskList(taskList)
+            }
         }
         composable("charts") {
             Charts()
@@ -36,7 +43,7 @@ fun NavGraph(navHostController: NavHostController) {
                 enter = fadeIn() + fadeIn(),
                 exit = fadeOut() + fadeOut()
             ) {
-                NewTask()
+                NewTaskLazyColumn()
             }
         }
     }

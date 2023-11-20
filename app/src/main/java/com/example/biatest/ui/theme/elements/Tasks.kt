@@ -1,5 +1,10 @@
 package com.example.biatest.ui.theme.elements
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -142,8 +147,20 @@ fun Tasks(taskInfo: TasksInfo) {
                 )
             }
             Spacer(modifier = Modifier.height(16.dp))
+
             if (isPopupVisible) {
-                PopupCard()
+//                AnimatedVisibility(
+//                    visible = isPopupVisible,
+//                    enter = fadeIn(
+//                        animationSpec = tween(
+//                            durationMillis = 300,
+//                            easing = LinearEasing
+//                        )
+//                    ),
+//                    exit = fadeOut(animationSpec = tween(durationMillis = 300)),
+//                ) {
+                    PopupCard()
+//                }
             } else {
                 Button(
                     onClick = { isPopupVisible = true },
@@ -181,9 +198,8 @@ fun Tasks(taskInfo: TasksInfo) {
             Spacer(modifier = Modifier.height(16.dp))
         }
     }
-
-
 }
+
 
 @Composable
 fun PopupCard() {

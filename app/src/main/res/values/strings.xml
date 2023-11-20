@@ -13,6 +13,10 @@
     <string name="info">Информация для подбора</string>
     <string name="typeTask">Тип задания</string>
     <string name="empl">Сотрудник найден</string>
+    <string name="additional">Дополнительное описание</string>
+    <string name="spec">Выберите специальность</string>
+    <string name="count">Требуемое количество исполнителей</string>
+    <string name="executor">Информация для исполнителя</string>
 
 
 

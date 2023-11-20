@@ -37,8 +37,8 @@ fun LoginScreen(onClick: () -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(30.dp),
-        horizontalArrangement = Arrangement.Start, // Align the content of the row to the start (left)
-        verticalAlignment = Alignment.CenterVertically // Align the content of the row to the top
+        horizontalArrangement = Arrangement.Start,
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Image(
             painter = painterResource(id = R.drawable.biatechnologies),
@@ -46,7 +46,7 @@ fun LoginScreen(onClick: () -> Unit) {
             modifier = Modifier
                 .size(50.dp)
         )
-        Spacer(modifier = Modifier.width(2.dp)) // Add space between the image and the text
+        Spacer(modifier = Modifier.width(2.dp))
         Text(
             text = stringResource(id = R.string.comf),
             color = Color.Black,
@@ -111,6 +111,7 @@ fun LoginScreen(onClick: () -> Unit) {
                 focusedBorderColor = Color.Gray,
                 unfocusedBorderColor = Color.Black,
                 focusedLabelColor = Color.Gray,
+                cursorColor = Color.Black
             ),
         )
 
